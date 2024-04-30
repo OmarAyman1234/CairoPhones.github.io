@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../CSS/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>S24 Ultra</title>
+        <style>
+            *{
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            body{
+                background-color: #dbe7f7;
+                margin:0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+            .samsungNavBarUl {
+                z-index: 2;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: black;
+            }
+            .samsungNavBarLi {
+                float: left;
+                font-size: 25px;
+            }
+            .samsungNavBarLi .samsungNavBarA {
+                display: inline-block;
+                /*with display: inline-block,
+                the top and bottom margins/paddings are respected,
+                but with display: inline they are not.*/
+                text-align: center; 
+                text-decoration: none;
+                padding: 15px;
+                color: white;
+            }
+            .samsungNavBarLi .samsungNavBarA:hover {
+                background-color: rgb(67, 66, 66);
+            }
+            #samsungLogoReturnToMain:hover {
+                content: url('../Images/SamsungBlack.png');
+            }         
+        </style>
+    </head>
+    <body> 
+        <script src="../JS/app.js"></script>
+        <header>
+            <nav>
+                <div>
+                    <ul class="samsungNavBarUl">
+                        <li class="samsungNavBarLi"><a class="samsungNavBarA" href="../index.html">Home</a></li>
+                        <li class="samsungNavBarLi"><a class="samsungNavBarA" href="#">Contact Us</a></li>
+                        <li class="samsungNavBarLi"><a class="samsungNavBarA" href="#">About Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div>
+        <h1 style="margin-top: 75px; width: 100%; padding:20px; background-color: #00246B; color:#CADCFC; text-align: center;">Samsung Galaxy S24 Ultra</h1>
+        </div>
+        <div>    
+            <h2 class="h2Headers"><em>Behold! Samsung's Flagship</em></h2>
+            <ul style="font-size: 20px;">
+                <a title="Return to main page" href="mainSamsung.htm"><img id="samsungLogoReturnToMain" style="margin-top:3%;margin-right: 10%; float: right; width: 40%; height: 40%;" src="../Images/SamsungBlue.png" alt="Samsung Logo Home Page Samsung"></a>
+                <li><strong>AI Android Smartphone</strong></li><br>
+                <li><strong>S Pen</strong></li><br>
+                <li><strong>5G Technology</strong></li><br>
+                <li style="text-transform: capitalize;"><strong>long lasting battery life</strong></li><br>
+
+            </ul>
+        </div>
+
+        <hr style="border:1px solid; margin: 20 0; background-color: black; color: black;">
+        <div class="specsByClicks">
+            <h2 class="h2Headers">Reviewing The Phone</h2>
+            <video src="../Media/s24ultrareviewmobizil.mp4" style="width: 50%; height: 30%; border: 7px solid rgb(9, 1, 149); display: block; margin: auto;" controls muted></video>
+        </div>
+
+        <hr style="border:1px solid; margin-bottom: 20px; background-color: black; color: black;">
+
+        <div class="specsByClicks">
+            <h2 class="h2Headers">Available Colors</h2>
+            <div style="float: left;">
+                <ol style="line-height: 70px; font-size: 20px;">
+                    <li onclick="changeToBlack()" class="ramromColors">Titanium Black</li> <br>
+                    <li onclick="changeToGray()" class="ramromColors">Titanium Gray</li> <br>
+                    <li onclick="changeToViolet()" class="ramromColors">Titanium Violet</li>
+                </ol>
+            </div>
+
+            <div style="float: right;">
+                <img id="s24UltraImage" style="margin-right: 150px; width: 400px; height: 400px;" src="../Images/Samsung-Galaxy-S24-Ultra-5G._TitaniumBlack.jpg" alt="S24UltraTitaniumBlack">
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+            
+        <hr style="border:1px solid; margin: 20 0; background-color: black; color: black;">
+    
+        <div class="specsByClicks">
+            <h2 class="h2Headers">Price</h2>
+            <ol style="font-size: 20px;">
+                <p id="s24UltraPrices" style="font-weight:bolder; color: royalblue; margin-right: 15%; float: right;">L.E 66000</p>
+                <li onclick="changePriceLowSpecs()" class="ramromColors">12 GB RAM | 256 GB Storage</li>
+                <li onclick="changePriceHighSpecs()" class="ramromColors">12 GB RAM | 512 GB Storage</li>
+            </ol>
+        </div>
+
+        <button onclick="document.getElementById('buyNowForm').style.display = 'block'" id="buyNowButton">Buy Now</button>
+    
+        <audio src="../Media/cat-meow-6226.mp3" controls></audio>
+        <hr style="border:1px solid; margin: 20 0; background-color: black; color: black;">
+        
+        <form id="buyNowForm" style="display: none;" onsubmit="return validateForm()"  action="" method="post">
+            <fieldset style="margin:auto;width: 400px">
+            <legend style="font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Order</legend>
+                <table class="formTable">
+                    <tr>
+                        <th class="formTableTH"><label for="fname">First Name:</label></th>
+                        <td class="formTableTD"><input class="formTableSamsungInput" type="text" name="fname" id="fname" maxlength="30" size="16" required autofocus></td> 
+                    </tr>
+                    <tr>
+                        <th class="formTableTH"><label for="lname">Last Name:</label></th>
+                        <td class="formTableTD"><input class="formTableSamsungInput" type="text" name="lname" id="lname" maxlength="30" size="16" required></td>
+                    </tr>
+                    <!-- <tr>
+                        <th class="formTableTH"><label for="username">Username:</label></th>
+                        <td class="formTableTD"><input type="text" name="username" id="username"></td> 
+                    </tr>
+                    <tr>
+                        <th class="formTableTH"><label for="email">Email:</label> </th>
+                        <td class="formTableTD"><input type="email" name="email" id="email"></td>
+                    </tr>
+                    <tr>
+                        <th class="formTableTH"><label for="password">password:</label></th>
+                        <td class="formTableTD"><input type="password" name="password" id="password"></td>
+                    </tr>
+                    <tr>
+                        <th class="formTableTH"><label for="confirmPassword">Confirm Password:</label></th>
+                        <td class="formTableTD"><input type="password" name="confirmPassword" id="confirmPassword"></td>
+                    </tr>  -->
+                    <tr>
+                        <th class="formTableTH"><label for="phoneNumber">Phone Number:</label></th>
+                        <td class="formTableTD">
+                            <input class="formTableSamsungInput" type="text" size="2" value="+20" readonly>
+                            <input class="formTableSamsungInput" type="text" pattern="[0-9]{10}" size="10" maxlength="10" title="Ten Numbers!" placeholder="XXXXXXXXXX" name="phoneNumber" id="phoneNumber" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="formTableTH"><label for="address">Address:</label></th>
+                        <td class="formTableTD"><textarea class="formTableSamsungInput" name="address" id="address" style="resize: none; width:97%; height: 100%;" cols="3" rows="3" required></textarea></td>
+                    </tr>
+                    <tr>
+                        <th class="formTableTH"><label for="brandName">Brand Name:</label></th>
+                        <td class="formTableTD"><input class="formTableSamsungInput" type="text" value="Samsung Galaxy S24 Ultra 5G" name="brandName" id="brandName" size="24" readonly></td>
+                    </tr>
+                    <tr>
+                        <th class="formTableTH"><label for="s24Color">Brand Color:</label></th>
+                        <td class="formTableTD"><input class="formTableSamsungInput" type="text" name="s24Color" id="s24Color" value="" size="12" required readonly></td>
+                    </tr>
+                    <tr>
+                        <th class="formTableTH"><label for="s24UltraPrice">Brand Price:</label></th>
+                        <td class="formTableTD"><input class="formTableSamsungInput" type="text" name="s24UltraPrice" id="s24UltraPrice" value="" size="7" required readonly></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="formTableTD">
+                            <input style="width: 31%; font-weight: bold;padding: 3px; background-color: limegreen; color: white;" type="submit" name="buy" id="orderBuySamsung" value="Buy">
+                            <input style="width: 31%; margin-left: 8px; font-weight: bold;padding: 3px;" type="reset" name="reset" id="resetFormSamsung" value="Reset">
+                            <button style="margin-left:9px; width: 31%; font-weight: bold;padding: 3px; background-color: red; color: white;" type="button" onclick="document.getElementById('buyNowForm').style.display = 'none'" id="cancelButtonSamsung">Cancel</button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+
+        <hr style="border:1px solid; margin: 20 0; background-color: black; color: black;">
+        
+        <h2 class="h2Headers">More Specifications</h2>
+
+        <table class="moreSpecsTable" style="margin: auto;">
+            <tr class="moreSpecsTR">
+                <th class="moreSpecsTH">Battery</th>
+                <td class="moreSpecsTD">5000 mAh</td>
+            </tr>
+            <tr class="moreSpecsTR">
+                <th class="moreSpecsTH">RAM</th>
+                <td class="moreSpecsTD">12 GB</td>
+            </tr>
+            <tr class="moreSpecsTR">
+                <th class="moreSpecsTH">ROM</th>
+                <td class="moreSpecsTD">256/512 GB</td>
+            </tr>
+            <tr class="moreSpecsTR">
+                <th class="moreSpecsTH">Screen</th>
+                <td class="moreSpecsTD">6.8 Inches,Small hole,QHD+</td>
+            </tr>
+            <tr class="moreSpecsTR">
+                <th class="moreSpecsTH">Front Camera</th>
+                <td class="moreSpecsTD">12 MP</td>
+            </tr>
+            <tr class="moreSpecsTR">
+                <th class="moreSpecsTH">Rear Camera</th>
+                <td class="moreSpecsTD">200 + 50 + 10 + 12 MP</td>
+            </tr>
+            <tr class="moreSpecsTR">
+                <th class="moreSpecsTH">Processor</th>
+                <td class="moreSpecsTD">Snapdragon 8 Gen 3 Octa core</td>
+            </tr>
+            <tr class="moreSpecsTR">
+                <th class="moreSpecsTH">Operating System</th>
+                <td class="moreSpecsTD">Android 14</td>
+            </tr>
+            <tr class="moreSpecsTR">
+                <th class="moreSpecsTH">Number of SIM cards</th>
+                <td class="moreSpecsTD">Two Slices</tr>
+            </tr>
+        </table>
+        <br>
+        <footer style="color:white;background-color: black;">
+            <br>
+            <hr> <!--The footer styled by <hr> from top and bottom was inspired from B.tech website.-->
+            <div class="footerCairoPhones">
+                <div class="footerCairoPhonesContent">
+                    <img style="display: block; margin:30%" src="../Images/CairoPhonesImage.jpg" alt="CairoPhonesLogo" height="100px">
+                </div>
+                <div style="text-align: center;" class="footerCairoPhonesContent">
+                    <h2>Our Location</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.0368487134033!2d31.31056087415116!3d29.863211127137284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458368becfaa68d%3A0xb8a6f7d9576f81f8!2z2YPZhNmK2Kkg2KfZhNit2KfYs9io2KfYqiDZiNin2YTYsNmD2KfYoSDYp9mE2KfYtdi32YbYp9i52YrYjCDYrNin2YXYudipINit2YTZiNin2YY!5e0!3m2!1sen!2seg!4v1714331931049!5m2!1sen!2seg" width="300px" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div style="text-align: center;" class="footerCairoPhonesContent">
+                    <h2>Contact Us</h2>
+                        <a style="font-size: 30px;" href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                        <a style="font-size: 30px;" href="https://twitter.com/?lang=en" target="_blank" class="fa fa-twitter"></a>
+                        <a style="font-size: 30px;" href="https://web.whatsapp.com/" target="_blank" class="fa fa-whatsapp"></a>
+                </div>
+                <hr>
+                <br>
+            </div>
+         </footer>
+    </body>
+</html>

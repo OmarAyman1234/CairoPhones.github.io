@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cairo Phones</title>
+    <style>
+        body
+        {
+            background-color:whitesmoke;
+            margin: 0;
+            padding-top: 2%;
+
+        }
+        ::-webkit-scrollbar 
+        {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track 
+        {
+            box-shadow: inset 0 0 0.25px black; 
+            border-radius: 0px;
+        }
+        ::-webkit-scrollbar-thumb
+        {
+            background: #c5c9c5 ; 
+            border-radius: 10px;
+        }
+        .header
+        {
+            z-index: 1;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+            height: 65px;
+            background-color: white;
+            border-bottom: 1px #dcdcdd solid;
+        }
+        .logo
+        {
+            cursor:pointer;
+            height: 60px;
+            margin-right: 25px;
+        }
+        .header-buttons-wrapper
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header-buttons-wrapper:hover .phones-button,.header-buttons-wrapper:hover .cases-button,.header-buttons-wrapper:hover .fix-button,.header-buttons-wrapper:hover .sale-button,.header-buttons-wrapper:hover .warranty-button
+        {
+            color: #949494;
+        }
+        .phones-button,.cases-button,.fix-button,.sale-button,.warranty-button
+        {
+            position: relative;
+            font-size: 16px;
+            height: 60px;
+            background-color: white;
+            border: none;
+            margin-left: 10px;
+            padding: 11px 10px;
+            cursor:pointer;
+            transition:color 0.3s;
+        }
+        .slider
+        {
+            position: absolute;
+            top :104%;
+            left: 15%;
+            height: 1px;
+            width: 0px;
+            background-color: black;
+            transition:width 0.25s;
+        }
+        .phones-button:hover .slider,.cases-button:hover .slider ,.fix-button:hover .slider,.sale-button:hover .slider,.warranty-button:hover .slider
+        {
+            width: 70%;
+        }
+
+        .phones-button:hover,.cases-button:hover,.fix-button:hover,.sale-button:hover,.warranty-button:hover
+        {
+            color: black !important;
+        }
+        .search-icon
+        {
+            object-fit: contain;
+            height: 24px;
+            width: 24px;
+        }
+       .user-icon
+        {
+            object-fit: contain;
+            height: 24px;
+            width: 24px;
+        }
+        .search-icon-container
+        {
+            position: relative;
+            margin-left: 60px;
+            padding: 6px;
+            cursor:pointer;
+        }
+        .user-icon-container
+        {
+            position: relative;
+            margin-left: 20px;
+            padding: 8px;
+            cursor:pointer;
+        }
+        .qslider1
+        {
+            position: absolute;
+            top :85%;
+            right: 10%;
+            height: 1px;
+            width: 0;
+            background-color: black;
+            transition:width 0.25s;
+        }
+        .qslider2
+        {
+            position: absolute;
+            top :0;
+            left: 10%;
+            height: 1px;
+            width: 0;
+            background-color: black;
+            transition:width 0.25s;
+        }
+        .qslider3
+        {
+            position: absolute;
+            top :10%;
+            right: 0%;
+            height: 0%;
+            width: 1px;
+            background-color: black;
+            transition:height 0.25s;
+        }
+        .qslider4
+        {
+            position: absolute;
+            bottom:20%;
+            left: 0%;
+            height: 0;
+            width: 1px;
+            background-color: black;
+            transition:height 0.25s;
+        }
+        .search-icon-container:hover .qslider1 ,.search-icon-container:hover .qslider2,.user-icon-container:hover .qslider1,.user-icon-container:hover .qslider2
+        {
+            width: 120%;
+        }
+        .search-icon-container:hover .qslider3 ,.search-icon-container:hover .qslider4,.user-icon-container:hover .qslider3,.user-icon-container:hover .qslider4
+        {
+            height: 100%;
+        }
+        .content-flex-grid
+        {
+            display:flex;
+            width: 100%;
+            flex-direction: column;
+
+        }
+        .porsche-wrapper,.magic6pro-wrapper,.magicv2-wrapper,.honor90-wrapper,.magic-v2-wrapper
+        {
+            width: 100%;
+            position: relative;
+        }
+        .porsche-photo,.magic6pro-photo,.honor90-photo,.magic-v2-background-photo
+        {
+            width: 100%;
+            height: 700px;
+            object-fit: cover;
+        }
+        .vs2-info,.magic-v2-info
+        {
+            position:absolute;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            top: 40%;
+            left:15% ;
+        }
+        .rsr-info,.magic6pro-info,.honor90-info  
+        {
+            position:absolute;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            top: 40%;
+            right:15% ;
+        }
+        .magic6pro-series-image,.honor90-series-image,.honor-magic-v2-series-image
+        {
+            object-fit: contain;
+            height: 70px;
+            width: 301px;
+        }
+        .series-name
+        {
+            margin-bottom: 10px;
+        }
+        .buy-button
+        {
+            font-size: 14px;
+            font-weight: 500;
+            height: 40px;
+            color: white;
+            background-color: #246eff ;
+            border-radius: 20px;
+            border: none;
+            padding: 8px 25px;
+            margin-right: 20px;
+            cursor:pointer;
+            transition: background-color 0.3s;
+        }
+        .buy-button:hover
+        {
+            background-color: #0f51d4;
+        }
+        .learn-button
+        {
+            height: 40px;
+            font-size: 14px;
+            color: white;
+            background-color:transparent;
+            border: none;
+            cursor:pointer;
+        }
+        .learn-button2
+        {
+            height: 40px;
+            font-size: 14px;
+            color: black;
+            background-color:transparent;
+            border: none;
+            cursor:pointer;
+        }
+        .learn-button:hover .arrow-icon
+        {
+            padding-left: 10px;
+        }
+        .arrow-icon
+        {
+            height: 11px;
+            object-fit: contain;
+            padding-left: 3px;
+            transition: padding-left 0.5s;
+        }
+        .phone-slogan
+        {
+            font-family: sans-serif;
+            font-size: 30px;
+            color: #999595;
+            margin-bottom: 20px;
+            
+        }
+        .footerCairoPhones {
+            display: inline-block;
+            width: 100%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+        }
+        .footerCairoPhonesContent {
+            display: inline-block;
+            box-sizing: border-box;
+            margin: 10px;
+            vertical-align: top;
+            width:30%;
+        }
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 30px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+        }
+        .fa:hover {
+            opacity: 0.7;
+        }
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+        .fa-whatsapp {
+            background: #25D366;
+            color: white; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <a href="../index.html"><img class="logo" src="../Images/logo2.png" alt="Cairo Phones logo"></a>
+        </div>
+        <div class="header-buttons-wrapper">
+            <div class="phones-button-container">
+                <button class="phones-button">
+                    Phones
+                    <div class="slider"></div>
+                </button>
+            </div>
+            <div class="cases-button-container">
+                <button class="cases-button">
+                    Cases
+                    <div class="slider"></div>
+                </button>
+            </div>
+            <div class="fix-button-container">
+                <button class="fix-button">
+                    Fix
+                    <div class="slider"></div>
+                </button>
+            </div>
+            <div class="sale-button-container">
+                <button class="sale-button">
+                    Sale
+                    <div class="slider"></div>
+                </button>
+            </div>
+            <div class="warranty-button-container">
+                <button class="warranty-button">
+                    Warranty
+                    <div class="slider"></div>
+                </button>
+            </div>
+            <div class="search-icon-container">
+                <img class="search-icon" src="../Images/search.png" alt="search icon">
+                <div class="qslider1"></div>
+                <div class="qslider2"></div>
+                <div class="qslider3"></div>
+                <div class="qslider4"></div>
+            </div>
+            <div class="user-icon-container">
+                <img class="user-icon" src="../Images/user.png" alt="user image">
+                <div class="qslider1"></div>
+                <div class="qslider2"></div>
+                <div class="qslider3"></div>
+                <div class="qslider4"></div>
+            </div>
+        </div>
+    </div>
+    <div class="content-flex-grid">
+        <div class="porsche-wrapper">
+            <img class="porsche-photo" src="../Images/porsche.jpg" alt="porsche series picture">
+            <div class="vs2-info">
+                <div class="series-name">
+                    <img src="../Images/magicvs2.svg" alt="Magicv2rsr">
+                </div>
+                <div class="buy-learn-wrapper">
+                    <button class="buy-button">
+                        Buy
+                    </button>
+                    <button class="learn-button">
+                        Learn More
+                    <img class="arrow-icon" src="../Images/arrow.png" alt="arrow">
+                    </button>
+                </div>
+            </div>
+            <div class="rsr-info">
+                <div class="series-name">
+                    <img src="../Images/magic6rsr.svg" alt="magic6rsr">
+                </div>
+                <div class="buy-learn-wrapper">
+                    <button class="buy-button">
+                        Buy
+                    </button>
+                    <button class="learn-button">
+                        Learn More
+                    <img class="arrow-icon" src="../Images/arrow.png" alt="arrow">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="magic6pro-wrapper">
+            <img class="magic6pro-photo" src="../Images/magic6pro.jpg" alt="porsche series picture">
+            <div class="magic6pro-info">
+                <div class="honor-series-name">
+                    <img class="magic6pro-series-image" src="../Images/HONORMagic6Pro.svg" alt="honormagic6pro5g">
+                </div>
+                <div class="phone-slogan">
+                    Discover the Magic
+                </div>
+                <div class="buy-learn-wrapper">
+                    <button class="buy-button">
+                        Buy
+                    </button>
+                    <button class="learn-button2">
+                        Learn More
+                    <img class="arrow-icon" src="../Images/arrow.png" alt="arrow">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="magic-v2-wrapper">
+            <img class="magic-v2-background-photo" src="../Images/lol.jpg" alt="magic v2 photo">
+            <div class="magic-v2-info">
+                <div class="honor-series-name">
+                    <img class="honor-magic-v2-series-image" src="../Images/HONORMagicV2.svg" alt=" Honor magic v2 ">
+                </div>
+                <div class="buy-learn-wrapper">
+                    <button class="buy-button">
+                        Buy
+                    </button>
+                    <button class="learn-button2">
+                        Learn More
+                    <img class="arrow-icon" src="../Images/arrow.png" alt="arrow">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="honor90-wrapper">
+            <img class="honor90-photo" src="../Images/honor90.jpg" alt="Honor 90 photo">
+            <div class="honor90-info">
+                <div class="honor-series-name">
+                    <img class="honor90-series-image" src="../Images/HONOR90.svg" alt="Honor 90 ">
+                </div>
+                <div class="phone-slogan">
+                    Share Your Vibe
+                </div>
+                <div class="buy-learn-wrapper">
+                    <button class="buy-button">
+                        Buy
+                    </button>
+                    <button class="learn-button2">
+                        Learn More
+                    <img class="arrow-icon" src="../Images/arrow.png" alt="arrow">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer style="color:white;background-color: black;">
+        <br>
+        <hr> <!--The footer styled by <hr> from top and bottom was inspired from B.tech website.-->
+        <div class="footerCairoPhones">
+            <div class="footerCairoPhonesContent">
+                <img style="display: block; margin:30%" src="../Images/CairoPhonesImage.jpg" alt="CairoPhonesIcon" height="100px">
+            </div>
+            <div style="text-align: center;" class="footerCairoPhonesContent">
+                <h2>Our Location</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.0368487134033!2d31.31056087415116!3d29.863211127137284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458368becfaa68d%3A0xb8a6f7d9576f81f8!2z2YPZhNmK2Kkg2KfZhNit2KfYs9io2KfYqiDZiNin2YTYsNmD2KfYoSDYp9mE2KfYtdi32YbYp9i52YrYjCDYrNin2YXYudipINit2YTZiNin2YY!5e0!3m2!1sen!2seg!4v1714331931049!5m2!1sen!2seg" width="300px" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div style="text-align: center;" class="footerCairoPhonesContent">
+                <h2>Contact Us</h2>
+                    <a  href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/?lang=en" target="_blank" class="fa fa-twitter"></a>
+                    <a href="https://web.whatsapp.com/" target="_blank" class="fa fa-whatsapp"></a>
+            </div>
+            <hr>
+            <br>
+        </div>
+     </footer>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Omar Ayman AbdElMoaty">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- This gives the browser instructions on how to control the page's dimensions and scaling based on the device. -->
+        <title>Samsung</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../CSS/style.css">
+        <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/f/f6/Samsung_icon.svg">
+        <style>
+        .samsungNavBarUl {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+        .samsungNavBarLi {
+            float: left;
+            font-size: 25px;
+        }
+        .samsungNavBarLi .samsungNavBarA {
+            display: inline-block;
+            /*with display: inline-block,
+            the top and bottom margins/paddings are respected,
+            but with display: inline they are not.*/
+            text-align: center; 
+            text-decoration: none;
+            padding: 15px;
+            color: white;
+        }
+        .samsungNavBarLi .samsungNavBarA:hover {
+            background-color: rgb(67, 66, 66);
+        }
+        #searchBarSamsung {
+            background-color: white;
+            color:black;
+            border: 3px solid white;
+            border-radius: 20px;
+            font-size: 20px;
+            margin-right: 50px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        </style>
+    </head>
+    <body id="mainSamsungBody">
+        <script src="../JS/app.js"></script>
+        <header>
+            <nav>
+                    <ul class="samsungNavBarUl">
+                        <li class="samsungNavBarLi"><a class="samsungNavBarA" href="../index.html">Home</a></li>
+                        <li class="samsungNavBarLi"><a class="samsungNavBarA" href="#">Contact Us</a></li>
+                        <li class="samsungNavBarLi"><a class="samsungNavBarA" href="#">About Us</a></li>
+                        <li style="float: right;" class="samsungNavBarLi"><input id="searchBarSamsung"  type="text" id="filterInput" onkeyup="filterContent()" placeholder="Search..."></li>
+                    </ul>
+            </nav>
+        </header>
+        <script>
+            // Function to filter content based on user input
+            function filterContent() {
+                // Get the value entered in the search bar
+                var filterValue = document.getElementById('searchBarSamsung').value.toUpperCase();
+        
+                // Get the elements to filter (assuming they have the class "availablePhones")
+                var itemsToFilter = document.querySelectorAll('.availablePhones');
+        
+                // Loop through each item
+                itemsToFilter.forEach(function(item) {
+                    var textContent = item.textContent || item.innerText;
+        
+                    // Check if the item's text content contains the search query
+                    if (textContent.toUpperCase().indexOf(filterValue) > -1) {
+                        item.style.display = ""; // Show the item
+                        // Also show the corresponding phone series header
+                        var seriesHeader = item.closest('.samsungSeries');
+                        if (seriesHeader) {
+                            seriesHeader.style.display = ""; // Show the series header
+                        }
+                    } else {
+                        item.style.display = "none"; // Hide the item
+                    }
+                });
+        
+                // Hide phone series headers if no corresponding items are visible
+                var seriesHeaders = document.querySelectorAll('.samsungSeries');
+                seriesHeaders.forEach(function(header) {
+                    var hasVisibleItems = Array.from(header.nextElementSibling.querySelectorAll('.availablePhones')).some(function(item) {
+                        return item.style.display !== 'none';
+                    });
+                    header.style.display = hasVisibleItems ? "" : "none"; // Show or hide the series header
+                });
+            }
+        </script>
+        
+        
+        
+        
+        <img id="mainSamsunglogo" src="../Images/SamsungWhite.png" alt="Samsung's Logo">
+        <div style="text-align: center;" id="Phones">
+            <h1 class="samsungSeries">S24 Series</h1>
+            <div id="s24" class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy S24</h2>
+                <img style="width:300px; height:300px" src="../Images/Samsung-Galaxy-S24-5G.jpg" alt="S24">
+                <h3 class="protospecs">8 GB RAM | 256 GB ROM<br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>L.E 45000</h3>
+
+            </div>
+            <div class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy S24 Plus</h2>
+                <img style="background-color:white; width:300px; height:300px" src="../Images/Samsung-Galaxyy-S24-Plus-5G.jpg" alt="S24 Plus">
+                <h3 class="protospecs">12 GB RAM | 256 GB ROM<br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>L.E 51000</h3>
+            </div>
+            <div class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy S24 Ultra</h2>
+                <a class="openingPhoneLink" href="S24Ultra.htm" title="More about this phone"><img onmouseover="changeS24Ultra()" id="s24UltraImageMain" style="background-color:white; width:300px; height:300px" src="../Images/Samsung-Galaxy-S24-Ultra-5G._TitaniumViolet.jpg" alt="S24 Ultra"></a>
+                <h3 class="protospecs">12 GB RAM | 256/512 GB ROM <br><span class="openingPhoneSpecs"><a class="openingPhoneLink" href="S24Ultra.htm">View more specs</a></span></h3>
+                <h3 onclick="showPriceMainS24Ultra()" id="viewPriceS24Ultra">View Price</h3>
+                <h3 id="s24UltraPriceMain" style="display: none;">Starting from  L.E 66000</h3>
+            </div>
+
+            <h1 class="samsungSeries">Z Flip 5</h1>
+            <div class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy Z Flip5</h2>
+                <img style="background-color:white; width:300px; height:300px" src="../Images/Samsung-Z-Flip5.png" alt="Z Flip 5">
+                <h3 class="protospecs">8 GB RAM | 256 GB ROM <br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>L.E 44000</h3>
+            </div>            
+            <h1 class="samsungSeries">Z Fold 5</h1>
+            <div class="availablePhones zFlip5">
+                <h2 class="phoneName">Samsung Galaxy Z Fold 5</h2>
+                <img style="background-color:white; width:300px; height:300px" src="../Images/Samsung-Galaxy-Z-Fold5.png" alt="Z Fold 5">
+                <h3 class="protospecs">12 GB RAM | 512 GB ROM <br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>L.E 75000</h3>
+                <!-- <span class="phoneButton"></span> -->
+            </div>            
+            <h1 class="samsungSeries">A Series</h1>            
+            <div class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy A55 5G</h2>
+                <img style="background-color:white; width:300px; height:300px" src="../Images/Samsung-Galaxy-A55-5G.png" alt="A55 5G">
+                <h3 class="protospecs">8 GB RAM | 128/256 GB ROM<br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>Starting from L.E 16500</h3>
+            </div>
+            <div class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy A35 5G</h2>
+                <img style="width:300px; height:300px" src="../Images/Samsung-Galaxy-A35-5G.jpg" alt="A35 5G">
+                <h3 class="protospecs">8 GB RAM | 128/256 GB ROM<br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>Starting from L.E 13500</h3>
+            </div>
+            <div class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy A25 5G</h2>
+                <img style="width:300px; height:300px" src="../Images/Samsung-Galaxy-A25-5G.jpg" alt="A25 5G">
+                <h3 class="protospecs">6/8 GB RAM | 128/256 GB ROM<br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>Starting from L.E 10900</h3>
+            </div>
+            <div class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy A15</h2>
+                <img style="width:300px; height:300px" src="../Images/Samsung-Galaxy-A15.jpg" alt="A15">
+                <h3 class="protospecs">4/6/8 GB RAM | 128/256 GB ROM<br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>Starting from L.E 6800</h3>
+            </div>            
+            <div class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy A05s</h2>
+                <img style="background-color:white; width:300px; height:300px" src="../Images/Samsung-Galaxy-A05s.png" alt="A05s">
+                <h3 class="protospecs">4/6 GB RAM | 64/128 GB ROM<br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>Starting from L.E 5000</h3>
+            </div> 
+            <div class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy A54 5G</h2>
+                <img style="width:300px; height:300px" src="../Images/Samsung-Galaxy-A54-5G.jpg" alt="A54 5G">
+                <h3 class="protospecs">8 GB RAM | 128/256 GB ROM <br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>Starting from L.E 15000</h3>
+            </div>
+            <div class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy A34 5G</h2>
+                <img style="width:300px; height:300px" src="../Images/Samsung-Galaxy-A34-5G.jpg" alt="A34 5G">
+                <h3 class="protospecs">8 GB RAM | 128/256 GB ROM <br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>Starting from L.E 12700</h3>
+            </div>
+            <div class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy A24</h2>
+                <img style="width:300px; height:300px" src="../Images/Samsung-Galaxy-A24.jpg" alt="A24">
+                <h3 class="protospecs">6/8 GB RAM | 128 GB ROM <br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>Starting from L.E 7900</h3>
+            </div>
+            <div class="availablePhones">
+                <h2 class="phoneName">Samsung Galaxy A14</h2>
+                <img style="width:300px; height:300px" src="../Images/Samsung-Galaxy-A14.jpg" alt="A14">
+                <h3 class="protospecs">4 GB RAM | 64/128 GB ROM <br><span class="openingPhoneSpecs">View more specs</span></h3>
+                <h3>Starting from L.E 6200</h3>
+            </div>
+        </div>
+        <br>
+        <footer style="color:white;background-color: black;">
+            <br>
+            <hr> <!--The footer styled by <hr> from top and bottom was inspired from B.tech website.-->
+            <div class="footerCairoPhones">
+                <div class="footerCairoPhonesContent">
+                    <img style="display: block; margin:30%" src="../Images/CairoPhonesImage.jpg" alt="CairoPhonesIcon" height="100px">
+                </div>
+                <div style="text-align: center;" class="footerCairoPhonesContent">
+                    <h2>Our Location</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.0368487134033!2d31.31056087415116!3d29.863211127137284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458368becfaa68d%3A0xb8a6f7d9576f81f8!2z2YPZhNmK2Kkg2KfZhNit2KfYs9io2KfYqiDZiNin2YTYsNmD2KfYoSDYp9mE2KfYtdi32YbYp9i52YrYjCDYrNin2YXYudipINit2YTZiNin2YY!5e0!3m2!1sen!2seg!4v1714331931049!5m2!1sen!2seg" width="300px" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div style="text-align: center;" class="footerCairoPhonesContent">
+                    <h2>Contact Us</h2>
+                        <a  href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                        <a href="https://twitter.com/?lang=en" target="_blank" class="fa fa-twitter"></a>
+                        <a href="https://web.whatsapp.com/" target="_blank" class="fa fa-whatsapp"></a>
+                </div>
+                <hr>
+                <br>
+            </div>
+         </footer>
+        </body>
+</html>

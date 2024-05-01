@@ -1,4 +1,4 @@
-/* SAMSUNG Main Page */
+/* SAMSUNG Main Page
 #mainSamsungBody {
     padding: 0;
     margin:0;
@@ -79,7 +79,7 @@
     .openingPhoneLink:hover {color: rgb(2, 35, 184)}
 }
 /*Page 2:*/
-.ramromColors:hover {
+/* .ramromColors:hover {
     cursor: pointer;
     color: #42c078;
 }
@@ -151,9 +151,9 @@
 }
 .moreSpecsTR:hover {
     background-color: #4caf50;
-}
+} */ 
 
-/* Kerolos */
+
 /*Kerolos*/
 
 :root {
